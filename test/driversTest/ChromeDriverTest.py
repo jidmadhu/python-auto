@@ -1,13 +1,10 @@
 import time
 import unittest
 
-from drivers.ChromeDriver import ChromeDriver
+from main.drivers.ChromeDriver import ChromeDriver
 
 
 class ChromeDriverTest(unittest.TestCase):
-
-    def test_browser_location(self):
-        self.assertTrue(len(ChromeDriver().get_chrome_driver_location()) > 0, "Success")
 
     def test_get_chrome_browser(self):
         test = ChromeDriver().create_driver()
