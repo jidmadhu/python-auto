@@ -10,7 +10,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class ChromeDriver:
 
-    def create_driver(self, user_options={}):
+    def create_driver(self, user_options=None):
+        if user_options is None:
+            user_options = {}
         try:
             options = self.__add_chromeoption(webdriver.ChromeOptions())
             if not user_options:
