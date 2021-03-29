@@ -10,14 +10,11 @@ class DriverManager:
         self.__browser = browser
         self.__runType = run_type
 
-    def get_driver(self, browser):
+    def get_driver(self, browser="chrome"):
         self.__browser = "chrome" if browser is None else browser
         return self.__getbrowser(self.__browser)
 
     def __getbrowser(self, i):
         browser = {"chrome": ChromeDriver().create_driver() if self.__browser == "chrome" else None,
                    "firefox": FireFoxDriver().create_driver() if self.__browser == "firefox" else None}
-        return browser.get(i, "This browser not supported, Please give " + browser.values().__str__())
-
-    def chrome(self):
-        return
+        return browser.get(i, "This browser not supported, Please give %s " % browser.keys())
